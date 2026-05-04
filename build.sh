@@ -4,5 +4,7 @@
 set -o errexit
 
 pip install -r requirements.txt
-playwright install chromium
-playwright install-deps chromium
+
+# Install Playwright Chromium (optional — app works without it via httpx)
+pip install playwright
+playwright install chromium || echo "Playwright chromium install failed — will use httpx only"
